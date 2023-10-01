@@ -1,0 +1,61 @@
+@import "includes/global.css"; 
+
+.container{
+    margin-right:10%;
+    margin-left:10%;
+    margin-top:100px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+
+}
+.post-body{
+    position: relative;
+    margin-right:50px ;
+}
+.post-picture{
+    object-fit:cover;
+    width:100%;
+}
+.post-title{
+    font-size:50px;
+    margin-bottom:30px;
+}
+.paragraph-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.post-paragraph{
+    margin-bottom: 20px;
+}
+.second-column{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Related{
+    width:65%;
+     border-bottom: 0.01rem solid #a0a0a0;
+    margin-top:80px;
+    padding:15px;
+    margin-bottom:20px;
+    font-size:19px;
+    color:#a0a0a0;
+;
+}
+.related-posts{
+    width:70%;
+    /* height:100px; */
+ }
+ .contact-p-header{
+    color:#FFCA0A;
+    margin-bottom: 20px;
+
+ }
+ .post-paragraph{
+    font-size:19px;
+ }
+ .contact-p{
+    font-size:19px;
+
+ }
+ 

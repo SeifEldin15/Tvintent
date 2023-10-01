@@ -25,7 +25,7 @@
                     <img src="data:image/jpeg;base64,'.base64_encode($imageData ?? '').'"alt="" class="post-img">
                     <div class="post-title">
                         <p class="post-title-p">'.$row["title"].'</p>
-                        <a href="" class="read-more-btn">Read More</a>
+                        <a href="http://localhost:8000/home.php?id='. $row['id'].'" class="read-more-btn">Read More</a>
                     </div>
                 </div> '; } 
             } else {
