@@ -1,3 +1,11 @@
+<?php 
+    require_once('connect.php');
+    $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+    $sql = "SELECT * FROM posts WHERE id = $id";
+    $result = $conn->query($sql);
+    $data = mysqli_fetch_assoc($result); 
+    $imageData = $data['picture'];
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,28 +18,12 @@
 
 <body>
     <?php include "includes/navbar.php"; ?>
+
     <div class="container">
         <div class="post-body">
-            <p class="post-title">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. L
-            </p>
-            <img src="assets/icons/man-watching-show-his-tv.jpg" alt="" class="post-picture">
-            <h2 class="paragraph-title">
-                Lorem ipsum dolor sit amet consectetu
-            </h2>
-            <p class="post-paragraph">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam tempore odit iusto, beatae quaerat
-                tempora earum necessitatibus! Ad officiis quisquam deleniti totam praesentium temporibus iusto ea
-                voluptatibus, itaque assumenda? Sed.
-            </p>
-            <h2 class="paragraph-title">
-                Lorem ipsum dolor sit amet consectetu
-            </h2>
-            <p class="post-paragraph">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam tempore odit iusto, beatae quaerat
-                tempora earum necessitatibus! Ad officiis quisquam deleniti totam praesentium temporibus iusto ea
-                voluptatibus, itaque assumenda? Sed.
-            </p>
+        <p class="post-title"><?php echo $data['title']; ?></p>
+        <img src="data:image/jpeg;base64,<?php echo base64_encode($imageData ?? '')?>" alt="" class="post-picture">
+        <p class="post-paragraph"><?php echo $data['content']; ?></p>
 
             <!-- ده هيفضل ثابت -->
             <h2 class="contact-p-header">
