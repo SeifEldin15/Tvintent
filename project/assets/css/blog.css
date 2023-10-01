@@ -1,0 +1,12 @@
+@import "includes/global.css"; 
+
+.body-container{
+    padding-left:10%;
+    padding-right:10%;
+    margin-top:100px;
+     width:100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1.5fr);
+    position: relative;
+ }
+ 

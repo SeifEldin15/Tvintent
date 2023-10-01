@@ -1,0 +1,29 @@
+.blog-post{
+    background-color: #F4F4F4;
+   height:auto;
+   margin:15px;
+   position: relative;
+   border-radius: 9px;
+   height:350px;
+}
+.post-img{
+   border-radius: 9px;
+   width:100%;
+   height:50%;
+
+    object-fit: cover;
+}
+.post-content{
+   font-size:18px;
+   padding:25px;
+}
+.read-more-btn{
+   color: #0270e0;
+   position: absolute;
+   bottom:15px;
+}
+.post-content-p{
+   margin-top:10px;
+   margin-bottom:50px;
+
+}

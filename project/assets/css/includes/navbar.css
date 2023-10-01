@@ -1,0 +1,49 @@
+@import "global.css"; 
+
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height:70px;
+    padding-left:8%;
+    padding-right:10%;
+
+ }
+.link{
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:35%;
+}
+.link a{
+    white-space:'nowrap';
+    color:black;
+
+ }
+ .link a:hover{
+    color: #FFCA0A;
+}
+.logo {
+    width: 180px;
+    height: 180px;
+}
+.navbar-btn{
+     padding:10px;
+     width: 111.064px;
+    height: 32.6px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 15px;
+     }
+.contact-btn{
+    background-color: #FFCA0A;
+    color:white;
+
+}
+.support-btn{
+    color:black;
+    border:0.01rem solid rgb(182, 182, 182);
+}
