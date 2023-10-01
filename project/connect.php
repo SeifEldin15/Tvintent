@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
+$servername = "DB";
 $username = "root";
-$password = "";
+$password = "root";
 $database = "TVintent" ;
 
 $conn = new mysqli($servername, $username, $password , $database );

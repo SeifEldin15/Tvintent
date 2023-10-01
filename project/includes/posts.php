@@ -9,8 +9,10 @@
 </head>
 <body>
 <?php
-session_start();
-require_once('connect.php');
+    if( empty(session_id()) && !headers_sent()){
+        session_start();
+    }
+    require_once('connect.php');
 ?>
 
     <?php
@@ -20,9 +22,9 @@ require_once('connect.php');
                 $imageData = $row['picture'];
                 echo '
                 <div class="blog-post">
-                    <img src="data:image/jpeg;base64,'.base64_encode($imageData).'"alt="" class="post-img">
-                    <div class="post-content">
-                        <p class="post-content-p">'.$row["content"].'</p>
+                    <img src="data:image/jpeg;base64,'.base64_encode($imageData ?? '').'"alt="" class="post-img">
+                    <div class="post-title">
+                        <p class="post-title-p">'.$row["title"].'</p>
                         <a href="" class="read-more-btn">Read More</a>
                     </div>
                 </div> '; } 

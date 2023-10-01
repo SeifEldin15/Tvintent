@@ -13,7 +13,7 @@
 
     object-fit: cover;
 }
-.post-content{
+.post-title{
    font-size:18px;
    padding:25px;
 }
@@ -22,7 +22,7 @@
    position: absolute;
    bottom:15px;
 }
-.post-content-p{
+.post-title-p{
    margin-top:10px;
    margin-bottom:50px;
 
