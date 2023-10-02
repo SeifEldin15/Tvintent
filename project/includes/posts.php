@@ -9,20 +9,19 @@
 </head>
 <body>
 <?php
+
     if( empty(session_id()) && !headers_sent()){
         session_start();
     }
     require_once('connect.php');
-?>
-
-    <?php
+    
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $imageData = $row['picture'];
                 echo '
                 <div class="blog-post">
-                    <img src="data:image/jpeg;base64,'.base64_encode($imageData ?? '').'"alt="" class="post-img">
+                    <img src="../admin/'.$row["picture"].'" alt="" class="post-img">
                     <div class="post-title">
                         <p class="post-title-p">'.$row["title"].'</p>
                         <a href="http://localhost:8000/post.php?id='. $row['id'].'" class="read-more-btn">Read More</a>

@@ -22,7 +22,7 @@
     <div class="container">
         <div class="post-body">
         <p class="post-title"><?php echo $data['title']; ?></p>
-        <img src="data:image/jpeg;base64,<?php echo base64_encode($imageData ?? '')?>" alt="" class="post-picture">
+        <img src="../admin/<?php echo $data['picture'];?>" alt="" class="post-picture">
         <p class="post-paragraph"><?php echo $data['content']; ?></p>
 
             <!-- ده هيفضل ثابت -->
