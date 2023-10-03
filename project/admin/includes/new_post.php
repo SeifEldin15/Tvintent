@@ -1,35 +1,37 @@
 <?php
-    
-    ob_start();
-    require_once "../../connect.php";
 
-    session_start();
+ ob_start();
+ 
+ require_once('db.php');
+ 
+ session_start();
 
+ $email = $_SESSION['email'];
 
-    $email = $_SESSION['email'];
-
-    $picture = $_POST['picture'];
+if(isset($_POST) & !empty($_POST)){
     $title = $_POST['title'];
-    $content = $_POST['content'];
+    $content = $_POST['editor'];
 
-  if (isset($_POST["submit"])) {
-    // Add task to DB
-    $sql = "INSERT INTO posts(title, content, picture)
-   VALUES ('$title', '$content', '$picture')";
+    $fileTmpPath = $_FILES['picture']['tmp_name'];
+    $fileName = $_FILES['picture']['name'];
+    $uploadDirectory = '../post-pics/';
+    $uniqueFileName = uniqid() . '_' . $fileName;
+    $destination = $uploadDirectory . $uniqueFileName;
+    move_uploaded_file($fileTmpPath, $destination);
 
-try {
-
-      $result = mysqli_query($conn, $sql);
-
-      header('Location:../posts.php?posted');
-
+    $sql = "INSERT INTO posts(title, content , picture)
+    VALUES (?,?,?)";
+    $stmt = $conn->prepare($sql);
+    try {
+        $stmt->execute([$title, $content ,$destination]);
+        header("loction: posts.php");
+    }
+  
+       catch (Exception $e) {
+          $e->getMessage();
+          echo "Error";
       }
 
-     catch (Exception $e) {
-        $e->getMessage();
-        echo "Error";
-    }
-  } 
 
-?> 
 
+}

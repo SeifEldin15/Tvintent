@@ -1,42 +1,5 @@
-<?php
-    
-ob_start();
-require_once "../connect.php";
+<?php include "includes/new_post.php" ?>
 
-session_start();
-
-
-$email = $_SESSION['email'];
-if(isset($_POST) & !empty($_POST)){
-    $title = $_POST['title'];
-    $content = $_POST['editor'];
-
-    $fileTmpPath = $_FILES['picture']['tmp_name'];
-    $fileName = $_FILES['picture']['name'];
-    $uploadDirectory = 'post-pics/';
-    $uniqueFileName = uniqid() . '_' . $fileName;
-    $destination = $uploadDirectory . $uniqueFileName;
-    move_uploaded_file($fileTmpPath, $destination);
-
-    $sql = "INSERT INTO posts(title, content , picture)
-    VALUES (?,?,?)";
-    $stmt = $conn->prepare($sql);
-    try {
-        $stmt->execute([$title, $content ,$destination]);
-  
-        }
-  
-       catch (Exception $e) {
-          $e->getMessage();
-          echo "Error";
-      }
-
-
-
-}
-
-
-?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +51,7 @@ if(isset($_POST) & !empty($_POST)){
 
 <body>
 
-    <!-- <?php include "includes/navbar.php";?> -->
+    <?php include "includes/navbar.php";?> 
 
     <!-- Left navbar-header end -->
     <!-- Page Content -->
@@ -175,6 +138,7 @@ if(isset($_POST) & !empty($_POST)){
     <!-- /#page-wrapper -->
     <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
     <script type="text/javascript" src="node_modules/froala-editor/js/froala_editor.pkgd.min.js"></script>
+    
     <script> var editor = new FroalaEditor('#editor'); </script>
 
     <script>

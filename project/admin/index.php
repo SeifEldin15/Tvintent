@@ -1,22 +1,5 @@
-<?php
-    ob_start();
-    require_once "../connect.php";
+<?php include "includes/index.php" ?>
 
-    session_start();
-
-    if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
-
-        header("location: login.php");
-  
-        exit;
-      }
-    $email = $_SESSION['email'];
-    $sql_posts = "SELECT * FROM posts";
-    $query_posts = mysqli_query($conn, $sql_posts);
-
-    // $sql_contacts = "SELECT * FROM contacts";
-    // $query_contacts = mysqli_query($conn, $sql_contacts);
-?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +29,7 @@
 <body>
     <!-- Preloader -->
     <?php include "includes/navbar.php" ?>
- 
+
     <div id="wrapper">
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -62,17 +45,6 @@
                     <!-- /.col-lg-12 -->
                 </div>
 
-                <?php 
-
-                 if (isset($_GET['set'])) {
-                    echo'<div class="alert alert-success" >
-                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                   <strong>DONE!! </strong><p> Your password has been successfully updated.</p>
-                     </div>';
-                        }
-
-
-                ?>
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
@@ -119,25 +91,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                            <?php
-                                            $sql= "SELECT * FROM posts LIMIT 3 ";
-                                            $result = $conn->query($sql);
-                                            if ($result->num_rows > 0) {
-                                                while ($row = $result->fetch_assoc()) {
-                                                    echo '
-                                                    <tr>
-                                                        <td class="txt-oflo">'.$row["title"].'</td>
-                                                        <td class="txt-oflo">'.$row["created_at"].'</td>
-                                                        <td><span class="text-success">'.$row['content'].'</span></td>
-                                                        </tr>
-                                                    '; } 
-                                                } else {
-                                                        echo "There are no posts";
-                                            } ?>
-                                            
-                                        
-
+                                        <?php include "includes/table_index.php" ?>
                                     </tbody>
 
                                 </table> 
