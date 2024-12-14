@@ -1,0 +1,47 @@
+version: '3'
+services:
+
+    php-apache:
+        container_name: website 
+        build: ./project
+        volumes:
+            - ./project:/var/www/html
+        environment:
+          - MYSQL_DBHOST=db 
+          - MYSQL_DAPORT=9000
+          - MYSQL_DAUSER=root
+          - MYSQL_DAPASS=root
+          - MYSQL_DANAME=
+          - file_uploads=On
+        
+        ports:
+            - 8000:80
+        depends_on:
+            - DB
+  
+    DB:
+      image: mysql:latest
+      container_name: DB
+      restart : always
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: test 
+      ports:
+        - "9000:3306"
+      volumes:
+        - DB_data:/var/lib/mysql
+
+    phpmyadmin : 
+      image : phpmyadmin:latest
+      restart : always 
+      ports:
+        - 8080:80 
+      environment : 
+        PMA_HOST: DB
+        UPLOAD_LIMIT: 300M
+        
+      depends_on:
+        - DB
+        
+volumes:
+  DB_data:

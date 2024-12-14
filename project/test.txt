@@ -1,0 +1,15 @@
+DirectoryIndex home.php
+
+php_flag display_errors off
+
+RewriteEngine On
+
+RewriteRule ^admin/$ admin/index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
+RewriteRule .* - [L,R=404]
+
+ErrorDocument 404 /error_pages/404.html

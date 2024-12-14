@@ -1,0 +1,98 @@
+
+
+.first-row{
+    display: flex;
+    width:100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.left-pragraph-container{
+max-width:500px;
+ color: #000;
+ font-size: 36px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.left-paragraph-header{
+    display: flex;
+    flex-direction:column;
+}
+.left-paragraph-header div{
+    display: flex;
+    white-space: nowrap;
+
+}
+.left-paragraph-1{
+    font-size:50px;
+}
+.left-paragraph-2{
+    font-size:50px;
+    color: #FFCA0A;
+
+}
+.left-pragraph{
+    font-size:25px;
+    margin:10px;
+}
+
+.first-row-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.first-row-img-blur{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    filter: blur(16px);  
+    z-index: -1;
+}
+
+.imgs{
+    position: relative;
+    width: 45%;
+    height: 28.66%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+@media screen and (max-width: 971px) {
+
+  
+    .first-row{
+        flex-direction:column;
+        width:100%;
+        
+    }
+
+ 
+        
+    .left-pragraph-container p
+    {
+ 
+        font-size:35px;
+    }
+
+    .imgs{
+        margin-top:20px;
+    width:100%;
+    }
+    
+    .first-row-img {
+        width: 95%;
+        height: 95%;
+        margin-top:0px;
+    }
+    .first-row-img-blur{
+        width: 100%;
+        height:100%;
+        position: absolute;
+        filter: blur(16px); /* Adjust the blur radius as needed */
+        z-index: -1;
+    }
+    
+}
